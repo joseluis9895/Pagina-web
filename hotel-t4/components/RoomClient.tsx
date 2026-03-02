@@ -1,17 +1,12 @@
 'use client';
 
-import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Wifi, Wind, MapPin, Coffee, Bath, Monitor } from 'lucide-react';
-import Header from '../../../components/Header';
-import BookingWidget from '../../../components/BookingWidget';
+import Header from './Header';
+import BookingWidget from './BookingWidget';
 import { useState } from 'react';
 
-export default function RoomDetail() {
-  const params = useParams();
-  const router = useRouter();
-  const type = params.type as 'single' | 'double' | 'family';
-  
+export default function RoomClient({ type }: { type: 'single' | 'double' | 'family' }) {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
